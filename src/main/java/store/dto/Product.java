@@ -19,4 +19,13 @@ public class Product {
     public List<List<String>> getProduct() {
         return product;
     }
+
+    public int getProductQuantityByProductName(String productName) {
+        int count = 0;
+        for (List<String> product : product) {
+            if (product.get(0).equals(productName)) {
+                count += Integer.parseInt(product.get(2));
+            }
+        } return count;
+    }
 }

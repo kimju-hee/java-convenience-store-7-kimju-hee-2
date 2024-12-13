@@ -6,6 +6,9 @@ import store.dto.Product;
 import store.dto.Promotion;
 import store.reader.ProductReader;
 import store.reader.PromotionReader;
+import store.view.InputView;
+import store.view.OutputView;
+import store.view.hanlder.InputHandler;
 
 public class Application {
     public static void main(String[] args) {
@@ -17,7 +20,10 @@ public class Application {
         Product product = productReader.readResource(productPath);
         Promotion promotion = promotionReader.readResource(promotionPath);
 
-        MainController mainController = new MainController(product);
+        OutputView outputView = new OutputView();
+        InputView inputView = new InputView(product);
+        InputHandler inputHandler = new InputHandler(inputView);
+        MainController mainController = new MainController(product, outputView, inputView, inputHandler);
         mainController.start();
     }
 }
