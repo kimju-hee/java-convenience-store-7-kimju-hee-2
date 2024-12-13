@@ -1,6 +1,7 @@
 package store;
 
 import java.util.List;
+import store.controller.MainController;
 import store.dto.Product;
 import store.dto.Promotion;
 import store.reader.ProductReader;
@@ -16,5 +17,7 @@ public class Application {
         Product product = productReader.readResource(productPath);
         Promotion promotion = promotionReader.readResource(promotionPath);
 
+        MainController mainController = new MainController(product);
+        mainController.start();
     }
 }

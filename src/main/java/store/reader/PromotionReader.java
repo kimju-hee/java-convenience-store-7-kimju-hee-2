@@ -5,13 +5,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import store.dto.Promotion;
 
 public class PromotionReader {
     public Promotion readResource(String path) {
-        Map<String, List<String>> promotionList = new HashMap<>();
+        LinkedHashMap<String, List<String>> promotionList = new LinkedHashMap<>();
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
             bufferedReader.readLine();
